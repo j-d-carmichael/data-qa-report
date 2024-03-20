@@ -1,6 +1,6 @@
 {
   "name": "data-qa-report",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Build a report on the use or not use of the data-qa attributes in the code",
   "scripts": {
     "build": "rm -rf ./build && tsc --project tsconfig.json --declaration --declarationDir build && tsc-alias -p tsconfig.json",

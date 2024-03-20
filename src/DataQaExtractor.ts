@@ -54,8 +54,12 @@ class DataQaExtractor {
       resultsWithoutDataQa: []
     };
     $(cssSelector).each(function () {
+      let dataQa = $(this).attr('data-qa');
+      if(!dataQa){
+        dataQa = $(this).attr('attr.data-qa');
+      }
       const obj = {
-        dataQaValue: $(this).attr('data-qa'),
+        dataQaValue: dataQa,
         nodeName: $(this).prop('nodeName'),
         xpath: cheerioXPath($, this)
       };
