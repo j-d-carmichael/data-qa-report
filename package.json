@@ -1,6 +1,6 @@
 {
   "name": "data-qa-report",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Build a report on the use or not use of the data-qa attributes in the code",
   "author": "John Carmichael",
   "license": "MIT",
