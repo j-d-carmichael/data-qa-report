@@ -1,14 +1,13 @@
 # data-qa-report
 
-Simple data-qa attribute reporting tool.
+data-qa attribute reporting tool.
 
-The report format is `IFinalReport` found in: [types/index.ts](./src/types/index.ts)
-
-The idea is to allow the team to quickly highlist elements with the data-qa attributes and where in the code they live.
-
-It also allows for the team to easily find elements without.
+The idea is to allow the team to quickly highlight elements with data-qa attributes and those without. Where in the code
+the items code can be found and ultimately where on your website or app the element can be found.
 
 The output will be written to disk or if no input passed it will log to the console.
+
+The report format is `IFinalReport` found in, [types/index.ts](https://github.com/j-d-carmichael/data-qa-report/blob/main/src/types/index.ts), but see further below for an example JSON output.
 
 ## Example
 
@@ -17,6 +16,7 @@ The output will be written to disk or if no input passed it will log to the cons
 3. Run the script "run:example" from the package.json file
 
 The example output will create a report on the files in folder, the test output will look like:
+
 ```json
 {
   "filesReport": [

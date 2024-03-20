@@ -1,15 +1,20 @@
 {
   "name": "data-qa-report",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Build a report on the use or not use of the data-qa attributes in the code",
-  "keywords": [],
+  "author": "John Carmichael",
+  "license": "MIT",
+  "keywords": [
+    "data-qa"
+  ],
+  "bin": {
+    "data-qa-report": "./bin/cli.js"
+  },
   "scripts": {
     "build": "rm -rf ./build && tsc --project tsconfig.json --declaration --declarationDir build && tsc-alias -p tsconfig.json",
     "run:example": "node build/cli.js --input test/code-to-report-on --output ./test/report-output --css-selector 'APP-LT-BUTTON'",
     "cli:help": "node build/cli.js --help"
   },
-  "author": "John Carmichael",
-  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "commander": "11.1.0",
