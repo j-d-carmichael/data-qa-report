@@ -5,7 +5,8 @@
   "keywords": [],
   "scripts": {
     "build": "rm -rf ./build && tsc --project tsconfig.json --declaration --declarationDir build && tsc-alias -p tsconfig.json",
-    "run:example": "node build/cli.js --input ./test/login --output ./test/report-output"
+    "run:example": "node build/cli.js --input test/code-to-report-on --output ./test/report-output --css-selector 'APP-LT-BUTTON'",
+    "cli:help": "node build/cli.js --help"
   },
   "author": "John Carmichael",
   "license": "MIT",

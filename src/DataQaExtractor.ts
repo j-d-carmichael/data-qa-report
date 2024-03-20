@@ -5,7 +5,7 @@ import cheerioXPath from '@/utils/cheerioXPath';
 import { IDataQaResult, IExtractQuantityReportFromFilesObject, IFileObjDataQa } from './types';
 
 class DataQaExtractor {
-  parseFiles (inputs: dirListObj[], cssSelector: string = '*[data-qa]'): IFileObjDataQa[] {
+  parseFiles (inputs: dirListObj[], cssSelector: string = 'input[type=button], button'): IFileObjDataQa[] {
     const resp: IFileObjDataQa[] = [];
     inputs.forEach((input) => resp.push(this.parseFile(input, cssSelector)));
     return resp;

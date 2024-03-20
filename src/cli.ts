@@ -9,7 +9,8 @@ const parseCli = async () => {
 
   report({
     targetDirectoryToReportOn: commands.input,
-    outputReportDirectory: commands.output
+    outputReportDirectory: commands.output,
+    cssSelector: commands.cssSelector
   });
 };
 

@@ -2,7 +2,8 @@ import { createCommand } from 'commander';
 
 interface cliOpts {
   input: string,
-  output: string
+  output?: string,
+  cssSelector?: string
 }
 
 /**
@@ -12,8 +13,9 @@ interface cliOpts {
  */
 export default (args: any[]): cliOpts => {
   const commander = createCommand();
-  commander.option('-i, --input [path]', 'The directory to report on eg ./src');
+  commander.requiredOption('-i, --input [path]', 'The directory to report on eg ./src');
   commander.option('-o, --output [path]', 'The folder to output the report to, if empty it will only log to the terminal');
+  commander.option('-s, --css-selector [string]', 'defaults to `input[type=button], button` if nothing is passed');
 
   commander.parse(args);
   return commander.opts() as unknown as cliOpts;
