@@ -1,0 +1,143 @@
+<ion-content>
+
+  <ion-grid class="auth-main-grid">
+    <ion-row class="ion-text-center">
+      <ion-col class="ion-text-center" size-lg="4" offset-lg="4">
+        <img src="assets/logo/bob_logo.png" alt="bob logo" class="auth-logo">
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col class="ion-text-center auth-area-box" size-lg="4" offset-lg="4">
+        <h1 #welcomeMsg>{{'messages.welcome' | translate}}</h1>
+
+        <p class="register-label">
+          {{'messages.noAccount' | translate}}
+          <span routerLink="/auth/register" class="auth-link">{{'labels.register' | translate}}</span>
+        </p>
+
+        <form *ngIf="!forgotPassword && !forgotPasswordSubmitted" [formGroup]="loginForm" (submit)="submitLogin()" novalidate>
+          <app-lt-card color="secondary" class="auth-card">
+
+            <div class="auth-card-content">
+
+              <h2>{{'messages.signinHeading' | translate}}</h2>
+
+              <app-lt-input
+                label="labels.email"
+                type="email"
+                formControlName="email"
+                class="auth-input"
+                autocomplete="username"
+                data-qa="login-email-field"
+              >
+              </app-lt-input>
+
+              <app-lt-input
+                label="labels.password"
+                type="password"
+                formControlName="password"
+                autocomplete="current-password"
+                (change)="checkAutoFilledPassword($event)"
+                data-qa="login-password-field"
+              >
+              </app-lt-input>
+            </div>
+
+            <div *ngIf="apiEnvironmentName.length" class="app-info">
+              <span *ngIf="versionCode || buildNumber">
+                {{versionCode}} ({{buildNumber}})
+                <br>
+              </span>
+              {{apiEnvironmentName}}
+            </div>
+          </app-lt-card>
+
+          <app-lt-button
+            (click)="submitLogin()"
+            color="primary"
+            [disabled]="loginForm.invalid"
+            class="button-login"
+            data-qa="login-form-submit"
+          >
+            {{'labels.signIn' | translate}}
+          </app-lt-button>
+
+          <span
+            (click)="switchToForgotPasswordPage()"
+            class="auth-link"
+            data-qa="login-switch-to-forgot-password"
+          >
+            {{'labels.forgotPassword' | translate}}?
+          </span>
+
+        </form>
+        <form *ngIf="forgotPassword && !forgotPasswordSubmitted" [formGroup]="forgotPasswordForm"
+          (submit)="submitForgotPassword()" novalidate>
+          <app-lt-card color="secondary" class="auth-card">
+            <div class="auth-card-content">
+              <h2>{{'labels.forgotPassword' | translate}}</h2>
+
+              <app-lt-input
+                label="labels.email"
+                type="email"
+                formControlName="email"
+                data-qa="forgot-password-email-field"
+              >
+              </app-lt-input>
+            </div>
+          </app-lt-card>
+
+          <div class="buttons-wrapper">
+
+            <app-lt-button
+              btnType="secondary"
+              (click)="switchToLoginPage()"
+              data-qa="forgot-password-cancel-button"
+            >
+              {{'labels.cancel' | translate}}
+            </app-lt-button>
+
+            <app-lt-button
+              type="submit"
+              [disabled]="forgotPasswordForm.invalid"
+              data-qa="forgot-password-form-submit"
+            >
+              {{'labels.submit' | translate}}
+            </app-lt-button>
+          </div>
+
+        </form>
+        <ng-container *ngIf="forgotPasswordSubmitted">
+          <app-lt-card color="secondary" class="auth-card">
+            <div class="msg-wrapper">
+              <h2>{{'labels.checkYourEmail' | translate}}</h2>
+              <ion-text color="light">
+                <p class="check-email-msg">{{'messages.checkEmailPass' | translate}}</p>
+              </ion-text>
+            </div>
+          </app-lt-card>
+          <app-lt-button (click)="switchToLoginPage()" class="email-login-button">{{'labels.login' | translate}}
+          </app-lt-button>
+        </ng-container>
+
+        <ng-container *ngIf="showLoginHelpMessage">
+          <app-lt-card color="secondary" class="auth-card">
+            <div class="msg-wrapper">
+              <h2>{{'labels.unableToLogin' | translate}}</h2>
+              <ion-text color="light">
+                <p class="login-help-message">{{'messages.unableToLogin' | translate}}</p>
+              </ion-text>
+            </div>
+          </app-lt-card>
+        </ng-container>
+
+        <figure class="bob-bob-logo ion-padding">
+          <img src="assets/logo/bob-bob.svg" alt="bob bob logo">
+        </figure>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

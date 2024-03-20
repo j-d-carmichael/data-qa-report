@@ -1,3 +1,6 @@
+# Retain files in ignore folders
+!.gitkeep
+
 # Logs
 logs
 *.log
@@ -35,8 +38,9 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+# Generated output
+build/
+test/report-output/
 
 # Dependency directories
 node_modules/

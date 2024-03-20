@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+  },
+  "exclude": [
+    "package.json",
+    "__tests__/**"
+  ]
+}
+
