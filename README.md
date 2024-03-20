@@ -9,3 +9,10 @@ The idea is to allow the team to quickly highlist elements with the data-qa attr
 It also allows for the team to easily find elements without.
 
 The output will be written to disk or if no input passed it will log to the console.
+
+
+## Example
+
+1. Clone the repo
+2. Install dependencies
+3. Run the script "run:example" from the package.json file
